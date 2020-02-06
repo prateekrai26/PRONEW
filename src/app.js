@@ -43,6 +43,12 @@ app.get("/",(req,res)=>
 })
 
 
+app.get("/user",(req,res)=>
+{
+    res.render("index")
+})
+
+
 
 app.listen("3000",()=>
 {
