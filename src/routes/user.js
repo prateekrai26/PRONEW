@@ -35,9 +35,6 @@ router.post("/signup",(req,res)=>
 {
     console.log(req.body)
     const user= new User(req.body)
-    const t
-
-
     user.save()
     res.redirect("/")
 })

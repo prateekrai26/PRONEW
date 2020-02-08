@@ -1,5 +1,6 @@
-let express= require("express");
-let app= express();
+const express= require("express");
+const app= express();
+const path = require('path')
 require("./db/mongoose")
 const User= require("./models/user");
 const hbs= require("hbs")
@@ -8,7 +9,10 @@ const bodyParser= require("body-parser")
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
 app.use(userRoute);
-app.set("view engine" , "hbs")
+app.set("view engine" , ".hbs")
+const publicDirectoryPath = path.join(__dirname,'../')
+
+app.use(express.static(publicDirectoryPath))
 // const temp= new User({
 //     name:"Prateek",
 //     age:20,
@@ -48,7 +52,10 @@ app.get("/user",(req,res)=>
     res.render("index")
 })
 
-
+app.get("/products",(req,res)=>
+{
+    res.render("product")
+})
 
 app.listen("3000",()=>
 {
