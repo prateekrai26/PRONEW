@@ -1,7 +1,6 @@
 let mongoose = require("mongoose");
-const url="mongodb://localhost/Insurance_App"
 
-mongoose.connect(url , {
+mongoose.connect('mongodb://localhost/Insurance_App', {
     useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex:true,

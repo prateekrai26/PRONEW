@@ -36,12 +36,6 @@ const userSchema = new mongoose.Schema({
         trim:true,
         minlengtth: 7
       },
-      type:
-      {
-          type:String,
-          required:true,
-          trim:true
-      } ,
       tokens:[
          {
              token:{
@@ -49,11 +43,44 @@ const userSchema = new mongoose.Schema({
                  required:true
              }
          }
-      ]
+      ],
+      address:
+      {
+        type:String,
+        required:true,
+        trim:true 
+      },
+      state:
+      {
+        type:String,
+        required:true,
+        trim:true
+      },
+      country:
+      {
+        type:String,
+        required:true,
+        trim:true
+      },
+      phone :
+      {
+        type:Number,
+        required:true,
+        trim:true
+      }
 },
 {
     timestamps:true
 })
+
+
+userSchema.methods.generateToken=async function()
+{
+  const user= this
+
+}
+
+
 
 const User= mongoose.model("User",userSchema);
 module.exports= User;
